@@ -1,0 +1,1 @@
+wss://m4zw52cuma.execute-api.us-east-1.amazonaws.com/prod

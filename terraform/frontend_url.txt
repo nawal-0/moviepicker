@@ -1,0 +1,1 @@
+http://moviepicker-frontend-480dac16.s3-website-us-east-1.amazonaws.com
