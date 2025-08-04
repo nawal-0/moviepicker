@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Home({ onCreateGroup, onJoinGroup, onLogout }) {
+function Home({ onCreateGroup, onJoinGroup }) {
   return (
     <div className="app-container">
       <header className="header">
@@ -12,24 +12,7 @@ function Home({ onCreateGroup, onJoinGroup, onLogout }) {
           </div>
           <span className="app-name">MoviePicker</span>
         </div>
-        <button 
-          onClick={onLogout}
-          style={{
-            background: 'none',
-            border: 'none',
-            color: '#6C6CE8',
-            fontSize: '16px',
-            fontWeight: '600',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '8px 16px',
-            borderRadius: '8px',
-          }}
-        >
-          Log out
-        </button>
+        
       </header>
 
       <main className="main-content" style={{ 

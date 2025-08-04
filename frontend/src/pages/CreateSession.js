@@ -41,7 +41,7 @@ const PROVIDER_ID_MAP = {
   'ABC iView': 135
 };
 
-function CreateSession({ onLogout, onStartSwiping, onBackToHome, onConnect }) {
+function CreateSession({ onStartSwiping, onBackToHome, onConnect }) {
   const [selectedGenres, setSelectedGenres] = useState(['Action', 'Comedy', 'Drama']);
   const [showMoreGenres, setShowMoreGenres] = useState(false);
   const [selectedPlatforms, setSelectedPlatforms] = useState(['Netflix', 'Binge']);
@@ -194,24 +194,7 @@ function CreateSession({ onLogout, onStartSwiping, onBackToHome, onConnect }) {
           >
             ← Back
           </button>
-          <button 
-            onClick={onLogout}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: '#6C6CE8',
-              fontSize: '16px',
-              fontWeight: '600',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '8px 16px',
-              borderRadius: '8px',
-            }}
-          >
-            Log out
-          </button>
+          
         </div>
       </header>
 
