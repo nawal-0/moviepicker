@@ -43,6 +43,14 @@ jobs:
           echo "ws_url=$(cat websocket.txt)" >> $GITHUB_OUTPUT
           echo "frontend_url=$(cat frontend_url.txt)" >> $GITHUB_OUTPUT
 
+      - name: Output deployment summary
+        run: |
+          echo "### Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- **API URL**: \`${{ steps.urls.outputs.api_url }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **WebSocket URL**: \`${{ steps.urls.outputs.ws_url }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Frontend URL**: \`${{ steps.urls.outputs.frontend_url }}\`" >> $GITHUB_STEP_SUMMARY
+
+
       - name: Update .env.production
         run: |
           echo "Updating .env.production..."
@@ -53,7 +61,7 @@ jobs:
         working-directory: frontend
         run: |
           export NODE_ENV=production
-          npm ci
+          npm install
           npm run build
 
       - name: Deploy to S3
