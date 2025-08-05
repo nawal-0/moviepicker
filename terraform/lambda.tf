@@ -9,7 +9,7 @@ resource "aws_lambda_function" "match_broadcast" {
 
 environment {
   variables = {
-    AWS_ACCOUNT_ID = "654654226779" 
+    AWS_ACCOUNT_ID = "804756348571" 
     MATCH_LAMBDA_NAME = "match_broadcast_lambda"
   }
 }
