@@ -9,6 +9,13 @@ terraform {
             version = "3.0.2"
         }
     }
+
+    backend "s3" {
+        bucket         = "moviepicker-terraform-state"
+        key            = "terraform.tfstate"
+        region         = "us-east-1"
+      
+    }
 }
 
 provider "aws" {
