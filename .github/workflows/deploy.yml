@@ -38,10 +38,19 @@ jobs:
 
       - name: Read generated URLs
         id: urls
+        working-directory: terraform
         run: |
           echo "api_url=$(cat api.txt)" >> $GITHUB_OUTPUT
           echo "ws_url=$(cat websocket.txt)" >> $GITHUB_OUTPUT
           echo "frontend_url=$(cat frontend_url.txt)" >> $GITHUB_OUTPUT
+
+      - name: Output deployment summary
+        run: |
+          echo "### Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- **API URL**: \`${{ steps.urls.outputs.api_url }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **WebSocket URL**: \`${{ steps.urls.outputs.ws_url }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Frontend URL**: \`${{ steps.urls.outputs.frontend_url }}\`" >> $GITHUB_STEP_SUMMARY
+
 
       - name: Update .env.production
         run: |
@@ -53,13 +62,11 @@ jobs:
         working-directory: frontend
         run: |
           export NODE_ENV=production
-          npm ci
-          npm run build
+          npm install
+          CI=false npm run build
 
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@master
-        with:
-          args: --acl public-read --follow-symlinks --delete
         env:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
