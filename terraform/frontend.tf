@@ -4,7 +4,7 @@ resource "random_id" "frontend_id" {
 }
 
 resource "aws_s3_bucket" "frontend_bucket" {
-    bucket = "moviepicker-frontend-480dac16"
+    bucket = "moviepicker-official-480dac16"
     force_destroy = true
 
 }

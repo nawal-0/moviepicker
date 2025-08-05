@@ -13,11 +13,8 @@ terraform {
 
 provider "aws" {
     region = "us-east-1"
-    shared_credentials_files = ["./credentials"]
-    profile = "654654226779_CSSE6400-LabRole"
     default_tags {
         tags = {
-            Course       = "CSSE6400"
             Name         = "MoviePicker"
             Automation   = "Terraform"
         }
@@ -27,13 +24,17 @@ provider "aws" {
 locals {
     database_username = "administrator"
     database_password = "mypassword"
-    version = "v1.0.9" // changing this will trigger a new image build
+    version = "v1.0.1" // changing this will trigger a new image build
 
 }
 
 # define data sources for existing resources
-data "aws_iam_role" "lab" {
-    name = "LabRole"
+data "aws_iam_role" "ecs" {
+    name = "ecs_role"
+}
+
+data "aws_iam_role" "lambda" {
+    name = "lambda-role"
 }
 
 data "aws_vpc" "default" {

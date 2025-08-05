@@ -1,6 +1,6 @@
 resource "aws_lambda_function" "match_broadcast" {
   function_name = "match_broadcast_lambda"
-  role          = data.aws_iam_role.lab.arn
+  role          = data.aws_iam_role.lambda.arn
   handler       = "lambda_function.lambda_handler"
   runtime       = "python3.11"
   filename      = "lambda_function_payload.zip"
@@ -24,7 +24,7 @@ resource "aws_lambda_function" "sns_listener" {
   function_name    = "sns-listener"
   handler          = "lambda_function.lambda_handler"
   runtime          = "python3.11"
-  role             = data.aws_iam_role.lab.arn
+  role             = data.aws_iam_role.lambda.arn
   source_code_hash = filebase64sha256("lambda-listener.zip")
 
   environment {
@@ -60,7 +60,7 @@ resource "aws_lambda_function" "on_connect" {
   filename = "connect_handler.zip"
   handler  = "lambda_function.lambda_handler"
   runtime  = "python3.11"
-  role     = data.aws_iam_role.lab.arn
+  role     = data.aws_iam_role.lambda.arn
 
   source_code_hash = filebase64sha256("connect_handler.zip")
 

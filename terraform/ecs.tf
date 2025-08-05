@@ -8,8 +8,8 @@ resource "aws_ecs_task_definition" "moviepicker" {
     requires_compatibilities = ["FARGATE"]
     cpu                      = "1024"
     memory                   = "2048"
-    execution_role_arn       = data.aws_iam_role.lab.arn
-    task_role_arn            = data.aws_iam_role.lab.arn
+    execution_role_arn       = data.aws_iam_role.ecs.arn
+    task_role_arn            = data.aws_iam_role.ecs.arn
 
     container_definitions = jsonencode([
         {
