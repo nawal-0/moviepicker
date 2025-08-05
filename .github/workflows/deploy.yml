@@ -1,0 +1,68 @@
+name: Deploy Infrastructure and Frontend
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.12.2 
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Terraform Init & Apply
+        working-directory: terraform
+        run: |
+          terraform init
+          terraform apply -auto-approve
+
+      - name: Read generated URLs
+        id: urls
+        run: |
+          echo "api_url=$(cat api.txt)" >> $GITHUB_OUTPUT
+          echo "ws_url=$(cat websocket.txt)" >> $GITHUB_OUTPUT
+          echo "frontend_url=$(cat frontend_url.txt)" >> $GITHUB_OUTPUT
+
+      - name: Update .env.production
+        run: |
+          echo "Updating .env.production..."
+          echo "REACT_APP_API_URL=${{ steps.urls.outputs.api_url }}" > frontend/.env.production
+          echo "REACT_APP_WEBSOCKET_URL=${{ steps.urls.outputs.ws_url }}" >> frontend/.env.production
+
+      - name: Install and Build Frontend
+        working-directory: frontend
+        run: |
+          export NODE_ENV=production
+          npm ci
+          npm run build
+
+      - name: Deploy to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
+          SOURCE_DIR: 'frontend/build'
