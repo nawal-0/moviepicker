@@ -3,7 +3,7 @@ How many hours have you spent scrolling through Netflix, then Amazon Prime, and 
 
 MoviePicker allows everyone in your group to 'like' movies that interest them to find a choice that suits everyone! When you like, if others in your group have also 'liked' on the same movie, it will appear as a match and would be a great choice for your group to watch together!
 
-[Website Link](http://moviepicker-official-480dac16.s3-website-us-east-1.amazonaws.com/))
+[Website Link](http://moviepicker-official-480dac16.s3-website-us-east-1.amazonaws.com/)
 
 
 ## Key Features
