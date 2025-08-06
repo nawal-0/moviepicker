@@ -201,13 +201,8 @@ function Matches({ sessionId, onBack, onStartNewSession }) {
       </nav>
 
       <main className="main-content">
-        <h1 style={{
-          fontSize: '2.5rem',
-          fontWeight: '700',
-          color: '#23263B',
-          marginBottom: '8px',
-          lineHeight: '1.2'
-        }}>
+        <h1 className='hero-title' style={{
+          fontSize: 'clamp(2rem, 5vw, 3.5rem)'}}>
           Matches
         </h1>
         
