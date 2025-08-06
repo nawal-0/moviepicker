@@ -194,3 +194,7 @@
   .page-header {
     margin-bottom: 3rem;
   }
+
+    @keyframes spin {
+    to { transform: rotate(360deg); }
+  }

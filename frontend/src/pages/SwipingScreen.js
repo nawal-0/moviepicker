@@ -314,7 +314,7 @@ function SwipingScreen({ sessionId, onBack, onGoToMatches, ws }) {
             width: '48px',
             height: '48px',
             border: '4px solid #E5E7EB',
-            borderTop: '4px solid #6C6CE8',
+            borderTop: '4px solid  #ff6b6b',
             borderRadius: '50%',
             animation: 'spin 1s linear infinite'
           }}></div>
@@ -377,7 +377,7 @@ function SwipingScreen({ sessionId, onBack, onGoToMatches, ws }) {
             width: '48px',
             height: '48px',
             border: '4px solid #E5E7EB',
-            borderTop: '4px solid #6C6CE8',
+            borderTop: '4px solid  #ff6b6b',
             borderRadius: '50%',
             animation: 'spin 1s linear infinite'
           }}></div>
@@ -470,7 +470,7 @@ function SwipingScreen({ sessionId, onBack, onGoToMatches, ws }) {
             width: '48px',
             height: '48px',
             border: '4px solid #E5E7EB',
-            borderTop: '4px solid #6C6CE8',
+            borderTop: '4px solid  #ff6b6b',
             borderRadius: '50%',
             animation: 'spin 1s linear infinite'
           }}></div>
