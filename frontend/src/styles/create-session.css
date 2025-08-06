@@ -28,24 +28,6 @@
     margin-bottom: 3rem;
   }
 
-  /* Error message */
-  .error-message {
-    background: linear-gradient(135deg, #ffebee, #ffcdd2);
-    color: #c62828;
-    padding: 1rem 1.5rem;
-    border-radius: 15px;
-    margin-bottom: 2rem;
-    border: 1px solid #ffcdd2;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    backdrop-filter: var(--blur-light);
-    font-weight: 500;
-  }
-
-  .error-icon {
-    font-size: 1.2rem;
-  }
 
   /* Preferences section */
   .preferences-section {

@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/colours.css';
 import '../styles/home.css';
 
 function Home({ onCreateGroup, onJoinGroup }) {

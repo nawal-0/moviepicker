@@ -1,7 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../styles/colours.css';
-import '../styles/home.css';
-import '../styles/create-session.css';
 import '../styles/swiping.css';
 import MatchOverlay from '../components/MatchOverlay';
 import PostMatchOptions from '../components/PostMatchOptions';

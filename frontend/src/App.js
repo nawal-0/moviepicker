@@ -4,7 +4,8 @@ import CreateSession from './pages/CreateSession';
 import JoinGroup from './pages/JoinGroup';
 import SwipingScreen from './pages/SwipingScreen';
 import Matches from './pages/Matches';
-import './Login.css';
+import './styles/styles.css';
+import './styles/colours.css';
 
 
 function AppContent() {

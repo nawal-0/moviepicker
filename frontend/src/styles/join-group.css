@@ -1,0 +1,67 @@
+/* body, html, #root, .App {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+} */
+
+
+
+/* Join Group Page Styles */
+.join-group-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.pin-input-container {
+  justify-content: center;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.pin-input {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #e2e2e2;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.pin-input:focus {
+  border-color: #6C6CE8;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(108, 108, 232, 0.2);
+}
+
+.create-group-prompt {
+  margin-top: 2rem;
+  color: #666;
+}
+
+.create-group-link {
+  color: #6C6CE8;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.create-group-link:hover {
+  color: #5858e6;
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

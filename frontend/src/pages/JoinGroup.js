@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Login.css';
+import '../styles/join-group.css';
 
 const API_URL = process.env.REACT_APP_API_URL;
 const WEBSOCKET_URL = process.env.REACT_APP_WEBSOCKET_URL;
@@ -84,42 +84,28 @@ function JoinGroup({ onCreateGroup, onJoinSuccess, onBackToHome, onConnect }) {
 
 
   return (
-    <div className="app-container">
-      <header className="header">
-        <div className="logo">
-          <div className="logo-icon">
-            <svg width="24" height="24" viewBox="0 0 100 100">
-              <polygon points="30,25 75,50 30,75" fill="#fff" />
-            </svg>
-          </div>
-          <span className="app-name">MoviePicker</span>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <button 
-            onClick={onBackToHome}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: '#6C6CE8',
-              fontSize: '16px',
-              fontWeight: '600',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '8px 16px',
-              borderRadius: '8px',
-            }}
-          >
-            <span style={{ fontSize: '20px' }}>←</span> Back
-          </button>
-        </div>
-      </header>
+    <div className="app">
+      {/* Background elements */}
+      <div className="bg-elements">
+        <div className="movie-icon movie-icon-1">🎭</div>
+        <div className="movie-icon movie-icon-2">🍿</div>
+        <div className="movie-icon movie-icon-3">🎬</div>
+        <div className="movie-icon movie-icon-4">📺</div>
+        <div className="movie-icon movie-icon-5">🎪</div>
+      </div>
 
-      <div className="join-group-content">
-        <h1 className="join-group-title">Join Group Session</h1>
-        <p className="join-group-subtitle">Enter the 4-character PIN</p>
+      <nav className="navbar">
+        <a href="#" className="logo">MoviePicker</a>
+          <button onClick={onBackToHome} className="btn-back">
+          ← Back to Home
+        </button>
+      </nav>
 
+      <main className="main-content">
+        <div className="page-header">
+          <h1 className="hero-title" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>Join Session</h1>
+          <p className="tagline">Enter the 4-character PIN</p>
+        </div>
         <div className="pin-input-container">
           {pin.map((digit, index) => (
             <input
@@ -137,20 +123,13 @@ function JoinGroup({ onCreateGroup, onJoinSuccess, onBackToHome, onConnect }) {
           ))}
         </div>
 
-        {error && (
-          <div style={{
-            color: '#FF3B30',
-            marginTop: '12px',
-            fontSize: '14px',
-            fontWeight: '500',
-            textAlign: 'center'
-          }}>
+        {error && (<div className="error-message">
             {error}
           </div>
         )}
 
         <button 
-          className="join-group-button"
+          className="btn btn-primary create-session-btn"
           onClick={handleJoinGroup}
           disabled={pin.some(digit => !digit) || isLoading}
         >
@@ -163,7 +142,7 @@ function JoinGroup({ onCreateGroup, onJoinSuccess, onBackToHome, onConnect }) {
             Create group
           </button>
         </p>
-      </div>
+    </main>
     </div>
   );
 }

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import PinGenerated from '../components/PinGenerated';
-import '../styles/home.css';
-import '../styles/colours.css';
 import '../styles/create-session.css';
 
 
