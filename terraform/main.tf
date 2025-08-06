@@ -31,7 +31,7 @@ provider "aws" {
 locals {
     database_username = "administrator"
     database_password = "mypassword"
-    version = "v1.0.1" // changing this will trigger a new image build
+    version = "v1.0.2" // changing this will trigger a new image build
 
 }
 

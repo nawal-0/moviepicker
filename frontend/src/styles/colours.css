@@ -1,0 +1,58 @@
+/* colors.css - Colour Variables for MoviePicker */
+
+:root {
+    /* Background Colorus */
+    --bg-gradient-start: #f8fafc;
+    --bg-gradient-middle: #e2e8f0;
+    --bg-gradient-end: #cbd5e1;
+  
+    /* Text Colours */
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-muted: #64748b;
+  
+    /* Gradient Colours */
+    --brand-red: #ff6b6b;
+    --brand-yellow: #ffd93d;
+    --brand-green: #6bcf7f;
+    --brand-cyan: #4ecdc4;
+  
+    /* Button Colours */
+    --btn-primary-start: #ff6b6b;
+    --btn-primary-end: #ffd93d;
+    --btn-primary-text: #000;
+    --btn-primary-shadow: rgba(255, 107, 107, 0.3);
+    --btn-primary-shadow-hover: rgba(255, 107, 107, 0.4);
+  
+    --btn-secondary-bg: rgba(0, 0, 0, 0.05);
+    --btn-secondary-bg-hover: rgba(0, 0, 0, 0.1);
+    --btn-secondary-text: #374151;
+    --btn-secondary-border: rgba(0, 0, 0, 0.15);
+    --btn-secondary-border-hover: rgba(0, 0, 0, 0.25);
+    --btn-secondary-shadow-hover: rgba(0, 0, 0, 0.2);
+  
+    /* Card Colours */
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-border: rgba(0, 0, 0, 0.1);
+    --card-border-hover: rgba(255, 107, 107, 0.3);
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --card-shadow-hover: rgba(0, 0, 0, 0.15);
+    --card-shimmer: rgba(255, 255, 255, 0.8);
+  
+    /* Navbar Colours */
+    --navbar-bg: rgba(255, 255, 255, 0.8);
+    --navbar-border: rgba(0, 0, 0, 0.1);
+  
+    /* Movie Icon Colours */
+    --movie-icon-color: #64748b;
+    --movie-icon-opacity: 0.15;
+  
+    /* Step Number Colours */
+    --step-number-bg-start: #ff6b6b;
+    --step-number-bg-end: #ffd93d;
+    --step-number-text: #000;
+  
+    /* Opacity Values */
+    --blur-light: blur(10px);
+    --blur-heavy: blur(20px);
+  }

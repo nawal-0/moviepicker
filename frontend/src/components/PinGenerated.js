@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/pin-generated.css';
 
 function PinGenerated({ pin, onShare, onStartSwiping, onClose }) {
   return (

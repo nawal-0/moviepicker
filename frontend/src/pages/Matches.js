@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../Login.css';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -63,17 +62,19 @@ function Matches({ sessionId, onBack, onStartNewSession }) {
 
   if (loading) {
     return (
-      <div className="app-container">
-        <header className="header">
-          <div className="logo">
-            <div className="logo-icon">
-              <svg width="24" height="24" viewBox="0 0 100 100">
-                <polygon points="30,25 75,50 30,75" fill="#fff" />
-              </svg>
-            </div>
-            <span className="app-name">MoviePicker</span>
-          </div>
-        </header>
+      <div className="app">
+      {/* Background elements */}
+      <div className="bg-elements">
+        <div className="movie-icon movie-icon-1">🎭</div>
+        <div className="movie-icon movie-icon-2">🍿</div>
+        <div className="movie-icon movie-icon-3">🎬</div>
+        <div className="movie-icon movie-icon-4">📺</div>
+        <div className="movie-icon movie-icon-5">🎪</div>
+      </div>
+
+      <nav className="navbar">
+        <a href="#" className="logo">MoviePicker</a>
+      </nav>
         <div style={{
           display: 'flex',
           flexDirection: 'column',
@@ -87,7 +88,7 @@ function Matches({ sessionId, onBack, onStartNewSession }) {
             width: '48px',
             height: '48px',
             border: '4px solid #E5E7EB',
-            borderTop: '4px solid #6C6CE8',
+            borderTop: '4px solid #ff6b6b',
             borderRadius: '50%',
             animation: 'spin 1s linear infinite'
           }}></div>
@@ -116,35 +117,44 @@ function Matches({ sessionId, onBack, onStartNewSession }) {
 
   if (error) {
     return (
-      <div className="app-container">
-        <header className="header">
-          <div className="logo">
-            <div className="logo-icon">
-              <svg width="24" height="24" viewBox="0 0 100 100">
-                <polygon points="30,25 75,50 30,75" fill="#fff" />
-              </svg>
-            </div>
-            <span className="app-name">MoviePicker</span>
-          </div>
-        </header>
+      <div className="app">
+      {/* Background elements */}
+      <div className="bg-elements">
+        <div className="movie-icon movie-icon-1">🎭</div>
+        <div className="movie-icon movie-icon-2">🍿</div>
+        <div className="movie-icon movie-icon-3">🎬</div>
+        <div className="movie-icon movie-icon-4">📺</div>
+        <div className="movie-icon movie-icon-5">🎪</div>
+      </div>
+
+      <nav className="navbar">
+        <a href="#" className="logo">MoviePicker</a>
+          <button onClick={onBack} className="btn-back">
+          ← Back to Home
+        </button>
+      </nav>
         <div style={{ padding: '40px', textAlign: 'center' }}>
-          <div style={{ color: '#EF4444' }}>Error: {error}</div>
-          <button onClick={onBack} style={{ marginTop: '16px' }}>Go Back</button>
+          <div className='error-message'>Error: {error}</div>
+
         </div>
       </div>
     );
   }
 
   return (
-    <div className="app-container">
-      <header className="header">
-        <div className="logo">
-          <div className="logo-icon">
-            <svg width="24" height="24" viewBox="0 0 100 100">
-              <polygon points="30,25 75,50 30,75" fill="#fff" />
-            </svg>
-          </div>
-          <span className="app-name">MoviePicker</span>
+    <div className="app">
+      {/* Background elements */}
+      <div className="bg-elements">
+        <div className="movie-icon movie-icon-1">🎭</div>
+        <div className="movie-icon movie-icon-2">🍿</div>
+        <div className="movie-icon movie-icon-3">🎬</div>
+        <div className="movie-icon movie-icon-4">📺</div>
+        <div className="movie-icon movie-icon-5">🎪</div>
+      </div>
+
+      <nav className="navbar">
+        <a href="#" className="logo">MoviePicker</a>
+        <div className="navbar-right">
           <span style={{ 
             marginLeft: '24px', 
             color: '#6B7280', 
@@ -188,16 +198,11 @@ function Matches({ sessionId, onBack, onStartNewSession }) {
           </svg>
           Leave Group
         </button>
-      </header>
+      </nav>
 
       <main className="main-content">
-        <h1 style={{
-          fontSize: '2.5rem',
-          fontWeight: '700',
-          color: '#23263B',
-          marginBottom: '8px',
-          lineHeight: '1.2'
-        }}>
+        <h1 className='hero-title' style={{
+          fontSize: 'clamp(2rem, 5vw, 3.5rem)'}}>
           Matches
         </h1>
         
@@ -228,7 +233,7 @@ function Matches({ sessionId, onBack, onStartNewSession }) {
           }}>
             {matches.map((match) => (
               <div key={match.id} style={{
-                background: 'linear-gradient(135deg, #FF6B35 0%, #6C6CE8 100%)',
+                background: 'linear-gradient(135deg, #6bcf7f 0%, #4ecdc4 100%)',
                 borderRadius: '16px',
                 padding: '24px',
                 color: 'white',
@@ -317,33 +322,7 @@ function Matches({ sessionId, onBack, onStartNewSession }) {
           marginTop: '48px'
         }}>
           <button
-            onClick={onBack}
-            style={{
-              backgroundColor: '#6C6CE8',
-              color: 'white',
-              border: 'none',
-              borderRadius: '12px',
-              padding: '16px 32px',
-              fontSize: '16px',
-              fontWeight: '600',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-              minWidth: '200px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              justifyContent: 'center'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.backgroundColor = '#5A5AD6';
-              e.target.style.transform = 'translateY(-2px)';
-              e.target.style.boxShadow = '0 8px 25px rgba(108, 108, 232, 0.3)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.backgroundColor = '#6C6CE8';
-              e.target.style.transform = 'translateY(0)';
-              e.target.style.boxShadow = 'none';
-            }}
+            className='btn btn-primary'
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M12 2L22 7L12 12L2 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
