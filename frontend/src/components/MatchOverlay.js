@@ -48,7 +48,7 @@ function MatchOverlay({
         <div className="match-overlay-actions">
           <button className="btn btn-primary" onClick={handleAddToMatches}>Add to Matches</button>
         </div>
-        <button className="btn btn-secondary" onClick={onClose} aria-label="Close">×</button>
+        <button className="match-overlay-close" onClick={onClose} aria-label="Close">×</button>
       </div>
     </div>
   );

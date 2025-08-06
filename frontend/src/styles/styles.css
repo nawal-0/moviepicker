@@ -164,6 +164,8 @@
     display: inline-block;
     position: relative;
     overflow: hidden;
+    justify-content: center;
+    align-items: center;
   }
   
   .btn-primary {
