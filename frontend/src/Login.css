@@ -57,13 +57,13 @@ body, html, #root, .App {
   animation: slideUp 0.5s ease-out 0.2s both;
 }
 
-.tagline {
+/* .tagline {
   font-size: 1.25rem;
   font-weight: 400;
   margin: 0;
   opacity: 0.9;
   animation: slideUp 0.5s ease-out 0.3s both;
-}
+} */
 
 /* Right panel - White side */
 .right-panel {
@@ -101,56 +101,7 @@ body, html, #root, .App {
 }
 
 /* Buttons */
-.login-btn, .create-btn {
-  width: 100%;
-  padding: 16px 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 12px;
-  border: none;
-  margin-bottom: 16px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  position: relative;
-  overflow: hidden;
-}
 
-.login-btn {
-  background: #6C6CE8;
-  color: #fff;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(108, 108, 232, 0.3);
-  animation: slideUp 0.5s ease-out 0.3s both;
-}
-
-.login-btn:hover {
-  background: #5757c6;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(108, 108, 232, 0.4);
-}
-
-.login-btn:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 8px rgba(108, 108, 232, 0.25);
-}
-
-.create-btn {
-  background: #fff;
-  color: #23272f;
-  border: 2px solid #e5e7eb;
-  animation: slideUp 0.5s ease-out 0.4s both;
-}
-
-.create-btn:hover {
-  background: #f3f4f6;
-  border-color: #d1d5db;
-  transform: translateY(-2px);
-}
-
-.create-btn:active {
-  transform: translateY(1px);
-  background: #e9ecef;
-}
 
 /* Features list in signup/login pages */
 .signup-features {
@@ -409,12 +360,6 @@ body, html, #root, .App {
   color: #fff;
 }
 
-.main-content {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 24px;
-}
-
 .page-title {
   font-size: 32px;
   font-weight: 700;
@@ -438,7 +383,7 @@ body, html, #root, .App {
   flex: 1;
 }
 
-.section-title {
+.options-title {
   font-size: 18px;
   font-weight: 600;
   color: #333;

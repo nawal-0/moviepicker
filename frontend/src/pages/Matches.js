@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../Login.css';
+import '../styles/home.css';
+import '../styles/colours.css';
 
 const API_URL = process.env.REACT_APP_API_URL;
 

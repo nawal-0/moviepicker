@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import '../Login.css';
 import PinGenerated from '../components/PinGenerated';
+import '../styles/home.css';
+import '../styles/colours.css';
+
 
 const API_URL = process.env.REACT_APP_API_URL;
 const WEBSOCKET_URL = process.env.REACT_APP_WEBSOCKET_URL;
@@ -217,7 +220,7 @@ function CreateSession({ onStartSwiping, onBackToHome, onConnect }) {
 
         <div className="preferences-container">
           <div className="left-column">
-            <h2 className="section-title">Genres</h2>
+            <h2 className="options-title">Genres</h2>
             <div className="genre-buttons">
               {visibleGenres.map(genre => (
                 <button
@@ -238,7 +241,7 @@ function CreateSession({ onStartSwiping, onBackToHome, onConnect }) {
               )}
             </div>
 
-            <h2 className="section-title streaming-title">Streaming Platforms</h2>
+            <h2 className="options-title streaming-title">Streaming Platforms</h2>
             <div className="platform-buttons">
               {allPlatforms.map(platform => (
                 <button
@@ -266,7 +269,7 @@ function CreateSession({ onStartSwiping, onBackToHome, onConnect }) {
             </div>
 
             <div>
-              <h2 className="section-title threshold-title">Match Threshold</h2>
+              <h2 className="options-title threshold-title">Match Threshold</h2>
               <div className="slider-container">
                 <div className="threshold-value">{matchThreshold}%</div>
                 <input
