@@ -56,8 +56,8 @@ function AppContent() {
   if (screen === 'matches') {
     return <Matches 
       sessionId={sessionId}
-      onBack={() => setScreen('swiping')}
-      onStartNewSession={() => setScreen('createSession')}
+      onBack={() => setScreen('home')}
+      onKeepSwiping={() => setScreen('swiping')}
     />;
   }
   

@@ -35,7 +35,7 @@ function MatchOverlay({
           <div className="match-overlay-info">
             <div className="match-overlay-movie-title">{title}</div>
             <div className="match-overlay-genres">
-              {genres.slice(0, 4).map((g, i) => (
+              {genres.slice(0, 3).map((g, i) => (
                 <span key={i} className="match-overlay-genre-chip">{g}</span>
               ))}
             </div>
@@ -46,9 +46,9 @@ function MatchOverlay({
           </div>
         </div>
         <div className="match-overlay-actions">
-          <button className="match-overlay-btn match-overlay-btn-primary" onClick={handleAddToMatches}>Add to Matches</button>
+          <button className="btn btn-primary" onClick={handleAddToMatches}>Add to Matches</button>
         </div>
-        <button className="match-overlay-close" onClick={onClose} aria-label="Close">×</button>
+        <button className="btn btn-secondary" onClick={onClose} aria-label="Close">×</button>
       </div>
     </div>
   );
