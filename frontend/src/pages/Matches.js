@@ -327,31 +327,7 @@ function Matches({ sessionId, onBack, onStartNewSession }) {
           marginTop: '48px'
         }}>
           <button
-            onClick={onBack}
-            style={{
-              background: 'linear-gradient(45deg, #ff6b6b 0%, #ffd93d 100%)',
-              color: 'white',
-              border: 'none',
-              borderRadius: '12px',
-              padding: '16px 32px',
-              fontSize: '16px',
-              fontWeight: '600',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-              minWidth: '200px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              justifyContent: 'center'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = 'translateY(-2px)';
-              e.target.style.boxShadow = '0 8px 25px rgba(255, 107, 107, 0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = 'translateY(0)';
-              e.target.style.boxShadow = 'none';
-            }}
+            className='btn btn-primary'
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M12 2L22 7L12 12L2 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

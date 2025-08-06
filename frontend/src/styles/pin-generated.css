@@ -93,7 +93,7 @@
 .pin-number {
   font-size: 64px;
   font-weight: 700;
-  color: #6C6CE8;
+  color: var(--brand-red);
   letter-spacing: 8px;
   margin-bottom: 16px;
 }
@@ -110,7 +110,7 @@
 
 .share-button {
   flex: 1;
-  background: #6C6CE8;
+  background: linear-gradient(45deg, var(--primary-start), var(--primary-end));
   color: white;
   border: none;
   border-radius: 12px;

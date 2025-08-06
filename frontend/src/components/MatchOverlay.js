@@ -35,7 +35,7 @@ function MatchOverlay({
           <div className="match-overlay-info">
             <div className="match-overlay-movie-title">{title}</div>
             <div className="match-overlay-genres">
-              {genres.map((g, i) => (
+              {genres.slice(0, 4).map((g, i) => (
                 <span key={i} className="match-overlay-genre-chip">{g}</span>
               ))}
             </div>

@@ -11,42 +11,7 @@
     flex-wrap: wrap;
   }
   
-  .btn {
-    padding: 1rem 2.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-  }
   
-  .btn-primary {
-    background: linear-gradient(45deg, var(--btn-primary-start), var(--btn-primary-end));
-    color: var(--btn-primary-text);
-    box-shadow: 0 10px 30px var(--btn-primary-shadow);
-  }
-  
-  .btn-secondary {
-    background: var(--btn-secondary-bg);
-    color: var(--btn-secondary-text);
-    border: 2px solid var(--btn-secondary-border);
-    backdrop-filter: var(--blur-light);
-  }
-  
-  .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px var(--btn-primary-shadow-hover);
-  }
-  
-  .btn-secondary:hover {
-    background: var(--btn-secondary-bg-hover);
-    border-color: var(--btn-secondary-border-hover);
-    box-shadow: 0 15px 40px var(--btn-secondary-shadow-hover);
-  }
   
   /* How to Start Section */
   .how-to-start {
