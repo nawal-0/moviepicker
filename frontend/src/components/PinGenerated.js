@@ -20,13 +20,13 @@ function PinGenerated({ pin, onShare, onStartSwiping, onClose }) {
         </div>
 
         <div className="modal-buttons">
-          <button className="share-button" onClick={() => onShare(pin)}>
+          <button className="btn btn-primary" onClick={() => onShare(pin)}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8 12L8 16M16 8L16 16M12 4L12 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
             </svg>
             Share PIN
           </button>
-          <button className="start-swiping-button" onClick={onStartSwiping}>
+          <button className="btn btn-secondary" onClick={onStartSwiping}>
             Start Swiping
           </button>
         </div>

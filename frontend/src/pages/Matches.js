@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-function Matches({ sessionId, onBack, onStartNewSession }) {
+function Matches({ sessionId, onBack, onKeepSwiping }) {
   const [matches, setMatches] = useState([]);
   const [sessionInfo, setSessionInfo] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -233,7 +233,7 @@ function Matches({ sessionId, onBack, onStartNewSession }) {
           }}>
             {matches.map((match) => (
               <div key={match.id} style={{
-                background: 'linear-gradient(135deg, #6bcf7f 0%, #4ecdc4 100%)',
+                background: 'linear-gradient(45deg, #6bcf7f 0%, #4ecdc4 100%)',
                 borderRadius: '16px',
                 padding: '24px',
                 color: 'white',
@@ -322,6 +322,7 @@ function Matches({ sessionId, onBack, onStartNewSession }) {
           marginTop: '48px'
         }}>
           <button
+            onClick={onKeepSwiping}
             className='btn btn-primary'
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
