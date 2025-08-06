@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../Login.css';
 import '../styles/colours.css';
 import '../styles/home.css';
 import '../styles/create-session.css';
@@ -285,41 +284,26 @@ function SwipingScreen({ sessionId, onBack, onGoToMatches, ws }) {
 
   if (loading) {
     return (
-      <div className="swipe-bg-visual">
-        <header className="header">
-          <div className="logo">
-            <div className="logo-icon">
-              <svg width="24" height="24" viewBox="0 0 100 100">
-                <polygon points="30,25 75,50 30,75" fill="#fff" />
-              </svg>
-            </div>
-            <span className="app-name">MoviePicker</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span style={{ color: '#23263B', fontWeight: 500, fontSize: '1rem', marginRight: '24px' }}>{progress}</span>
-            <button 
-              onClick={onBack}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: '#6C6CE8',
-                fontSize: '16px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '8px 16px',
-                borderRadius: '8px',
-              }}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M15 19l-7-7 7-7" stroke="#6C6CE8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              Back
-            </button>
-          </div>
-        </header>
+      <div className="app">
+      {/* Background elements */}
+      <div className="bg-elements">
+        <div className="movie-icon movie-icon-1">🎭</div>
+        <div className="movie-icon movie-icon-2">🍿</div>
+        <div className="movie-icon movie-icon-3">🎬</div>
+        <div className="movie-icon movie-icon-4">📺</div>
+        <div className="movie-icon movie-icon-5">🎪</div>
+      </div>
+
+      <nav className="navbar">
+        <a href="#" className="logo">MoviePicker</a>
+        <div className="navbar-right">
+          <span style={{ color: '#23263B', fontWeight: 500, fontSize: '1rem', marginRight: '24px' }}>{progress}</span>
+          <button onClick={onBack} className="btn-back">
+            ← Back to Home
+          </button>
+        </div>
+      </nav>
+
         <div style={{
           display: 'flex',
           flexDirection: 'column',
@@ -363,41 +347,26 @@ function SwipingScreen({ sessionId, onBack, onGoToMatches, ws }) {
   // Handle case when waiting for more movies to load
   if (!currentMovie && loadingMore) {
     return (
-      <div className="swipe-bg-visual">
-        <header className="header">
-          <div className="logo">
-            <div className="logo-icon">
-              <svg width="24" height="24" viewBox="0 0 100 100">
-                <polygon points="30,25 75,50 30,75" fill="#fff" />
-              </svg>
-            </div>
-            <span className="app-name">MoviePicker</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span style={{ color: '#23263B', fontWeight: 500, fontSize: '1rem', marginRight: '24px' }}>{progress}</span>
-            <button 
-              onClick={onBack}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: '#6C6CE8',
-                fontSize: '16px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '8px 16px',
-                borderRadius: '8px',
-              }}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M15 19l-7-7 7-7" stroke="#6C6CE8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              Back
-            </button>
-          </div>
-        </header>
+      <div className="app">
+      {/* Background elements */}
+      <div className="bg-elements">
+        <div className="movie-icon movie-icon-1">🎭</div>
+        <div className="movie-icon movie-icon-2">🍿</div>
+        <div className="movie-icon movie-icon-3">🎬</div>
+        <div className="movie-icon movie-icon-4">📺</div>
+        <div className="movie-icon movie-icon-5">🎪</div>
+      </div>
+
+      <nav className="navbar">
+        <a href="#" className="logo">MoviePicker</a>
+        <div className="navbar-right">
+          <span style={{ color: '#23263B', fontWeight: 500, fontSize: '1rem', marginRight: '24px' }}>{progress}</span>
+          <button onClick={onBack} className="btn-back">
+            ← Back to Home
+          </button>
+        </div>
+      </nav>
+
         <div style={{
           display: 'flex',
           flexDirection: 'column',
@@ -441,48 +410,29 @@ function SwipingScreen({ sessionId, onBack, onGoToMatches, ws }) {
   // Show no more movies only when we've truly exhausted all available movies
   if (!currentMovie && !hasMoreMovies && currentIndex >= movies.length) {
     return (
-      <div className="swipe-bg-visual">
-        <header className="header">
-          <div className="logo">
-            <div className="logo-icon">
-              <svg width="24" height="24" viewBox="0 0 100 100">
-                <polygon points="30,25 75,50 30,75" fill="#fff" />
-              </svg>
-            </div>
-            <span className="app-name">MoviePicker</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span style={{ color: '#23263B', fontWeight: 500, fontSize: '1rem', marginRight: '24px' }}>{progress}</span>
-            <button 
-              onClick={onBack}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: '#6C6CE8',
-                fontSize: '16px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '8px 16px',
-                borderRadius: '8px',
-              }}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M15 19l-7-7 7-7" stroke="#6C6CE8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              Back
-            </button>
-          </div>
-        </header>
-        <div className="no-more-movies">
-          <h2>No more movies to show!</h2>
-          <p>You've gone through all available movies for this session.</p>
-          <button className="back-button" onClick={onBack}>
-            Back to Home
+      <div className="app">
+      {/* Background elements */}
+      <div className="bg-elements">
+        <div className="movie-icon movie-icon-1">🎭</div>
+        <div className="movie-icon movie-icon-2">🍿</div>
+        <div className="movie-icon movie-icon-3">🎬</div>
+        <div className="movie-icon movie-icon-4">📺</div>
+        <div className="movie-icon movie-icon-5">🎪</div>
+      </div>
+
+      <nav className="navbar">
+        <a href="#" className="logo">MoviePicker</a>
+        <div className="navbar-right">
+          <span style={{ color: '#23263B', fontWeight: 500, fontSize: '1rem', marginRight: '24px' }}>{progress}</span>
+          <button onClick={onBack} className="btn-back">
+            ← Back to Home
           </button>
         </div>
+      </nav>
+        
+          <h2>No more movies to show!</h2>
+          <p>You've gone through all available movies for this session.</p>
+        
       </div>
     );
   }
@@ -490,41 +440,26 @@ function SwipingScreen({ sessionId, onBack, onGoToMatches, ws }) {
   // If we don't have a current movie but should have one, something went wrong
   if (!currentMovie) {
     return (
-      <div className="swipe-bg-visual">
-        <header className="header">
-          <div className="logo">
-            <div className="logo-icon">
-              <svg width="24" height="24" viewBox="0 0 100 100">
-                <polygon points="30,25 75,50 30,75" fill="#fff" />
-              </svg>
-            </div>
-            <span className="app-name">MoviePicker</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span style={{ color: '#23263B', fontWeight: 500, fontSize: '1rem', marginRight: '24px' }}>{progress}</span>
-            <button 
-              onClick={onBack}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: '#6C6CE8',
-                fontSize: '16px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '8px 16px',
-                borderRadius: '8px',
-              }}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M15 19l-7-7 7-7" stroke="#6C6CE8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              Back
-            </button>
-          </div>
-        </header>
+      <div className="app">
+      {/* Background elements */}
+      <div className="bg-elements">
+        <div className="movie-icon movie-icon-1">🎭</div>
+        <div className="movie-icon movie-icon-2">🍿</div>
+        <div className="movie-icon movie-icon-3">🎬</div>
+        <div className="movie-icon movie-icon-4">📺</div>
+        <div className="movie-icon movie-icon-5">🎪</div>
+      </div>
+
+      <nav className="navbar">
+        <a href="#" className="logo">MoviePicker</a>
+        <div className="navbar-right">
+          <span style={{ color: '#23263B', fontWeight: 500, fontSize: '1rem', marginRight: '24px' }}>{progress}</span>
+          <button onClick={onBack} className="btn-back">
+            ← Back to Home
+          </button>
+        </div>
+      </nav>
+
         <div style={{
           display: 'flex',
           flexDirection: 'column',
