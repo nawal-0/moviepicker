@@ -123,6 +123,7 @@
   display: flex;
   gap: 16px;
   margin-top: 18px;
+  justify-content: center;
 }
 .match-overlay-btn {
   flex: 1;
