@@ -1,0 +1,211 @@
+
+  /* Preferences section */
+  .preferences-section {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .preference-card {
+    background: var(--card-bg);
+    backdrop-filter: var(--blur-heavy);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px var(--card-shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  /* Options grid */
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .option-chip {
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--btn-secondary-border);
+    background: var(--btn-secondary-bg);
+    color: var(--text-primary);
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: var(--blur-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .option-chip::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: linear-gradient(45deg, var(--brand-red), var(--brand-yellow));
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+  .option-chip:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  .option-chip:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px var(--card-shadow-hover);
+    color: #fff;
+    border-color: transparent;
+  }
+
+  .option-chip.selected {
+    background: linear-gradient(45deg, var(--brand-red), var(--brand-yellow));
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 8px 20px var(--btn-primary-shadow);
+  }
+
+  .more-chip {
+    background: var(--card-bg);
+    border: 2px dashed var(--btn-secondary-border);
+    color: var(--text-secondary);
+  }
+
+  .more-chip:hover {
+    border-style: solid;
+    color: var(--text-primary);
+  }
+
+  .platform-chip.selected {
+    background: linear-gradient(45deg, var(--brand-green), var(--brand-cyan));
+    box-shadow: 0 8px 20px rgba(76, 207, 130, 0.3);
+  }
+
+  .platform-chip::before {
+    background: linear-gradient(45deg, var(--brand-green), var(--brand-cyan));
+  }
+
+  /* Slider section */
+  .threshold-label {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .slider-container {
+    max-width: 400px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .threshold-slider {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: var(--card-border);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    margin-bottom: 1rem;
+  }
+
+  .threshold-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--brand-red), var(--brand-yellow));
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--btn-primary-shadow);
+    transition: all 0.3s ease;
+  }
+
+  .threshold-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 6px 20px var(--btn-primary-shadow-hover);
+  }
+
+  .threshold-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--brand-red), var(--brand-yellow));
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 15px var(--btn-primary-shadow);
+  }
+
+  .slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .threshold-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* Session actions */
+  .session-actions {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .create-session-btn {
+    font-size: 1.2rem;
+    padding: 1.25rem 3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .create-session-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .preferences-section {
+      gap: 1.5rem;
+    }
+
+    .preference-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .options-grid {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .option-chip {
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    .threshold-value {
+      font-size: 2.5rem;
+    }
+
+    .create-session-btn {
+      width: 100%;
+      max-width: 300px;
+    }
+  }

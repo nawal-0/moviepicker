@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import '../Login.css';
 import PinGenerated from '../components/PinGenerated';
+import '../styles/create-session.css';
+
 
 const API_URL = process.env.REACT_APP_API_URL;
 const WEBSOCKET_URL = process.env.REACT_APP_WEBSOCKET_URL;
@@ -69,7 +70,7 @@ function CreateSession({ onStartSwiping, onBackToHome, onConnect }) {
     'Stan', 'Paramount+', 'Apple TV+'
   ];
 
-  const visibleGenres = showMoreGenres ? allGenres : allGenres.slice(0, 3);
+  const visibleGenres = showMoreGenres ? allGenres : allGenres.slice(0, 5);
 
   const handleGenreClick = (genre) => {
     setSelectedGenres(prev =>
@@ -165,64 +166,48 @@ function CreateSession({ onStartSwiping, onBackToHome, onConnect }) {
   };
 
   return (
-    <div className="app-container">
-      <header className="header">
-        <div className="logo">
-          <div className="logo-icon">
-            <svg width="24" height="24" viewBox="0 0 100 100">
-              <polygon points="30,25 75,50 30,75" fill="#fff" />
-            </svg>
-          </div>
-          <span className="app-name">MoviePicker</span>
-        </div>
-        <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-          <button 
-            onClick={onBackToHome}
-            style={{
-              background: 'none',
-              border: '1px solid #6C6CE8',
-              color: '#6C6CE8',
-              fontSize: '14px',
-              fontWeight: '600',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '8px 16px',
-              borderRadius: '8px',
-            }}
-          >
-            ← Back
-          </button>
-          
-        </div>
-      </header>
+    <div className="app">
+      {/* Background elements */}
+      <div className="bg-elements">
+        <div className="movie-icon movie-icon-1">🎭</div>
+        <div className="movie-icon movie-icon-2">🍿</div>
+        <div className="movie-icon movie-icon-3">🎬</div>
+        <div className="movie-icon movie-icon-4">📺</div>
+        <div className="movie-icon movie-icon-5">🎪</div>
+      </div>
+
+      <nav className="navbar">
+        <a href="#" className="logo">MoviePicker</a>
+          <button onClick={onBackToHome} className="btn-back">
+          ← Back to Home
+        </button>
+      </nav>
 
       <main className="main-content">
-        <h1 className="page-title">Create Group Session</h1>
-        <p className="page-subtitle">Set up your movie night preferences</p>
+      <div className="page-header">
+          <h1 className="hero-title" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>
+            Create Group Session
+          </h1>
+          <p className="tagline">Set up your movie night preferences!</p>
+      </div>
 
-        {error && (
-          <div style={{
-            backgroundColor: '#ffebee',
-            color: '#c62828',
-            padding: '12px 16px',
-            borderRadius: '8px',
-            marginBottom: '24px',
-            border: '1px solid #ffcdd2'
-          }}>
+      {error && (
+          <div className="error-message">
             {error}
           </div>
         )}
 
-        <div className="preferences-container">
-          <div className="left-column">
-            <h2 className="section-title">Genres</h2>
-            <div className="genre-buttons">
+        <div className="preferences-section">
+          {/* Genres Section */}
+          <div className="preference-card">
+            <h2 className="section-title" style={{ fontSize: '1.8rem', marginBottom: '1.5rem' }}>
+              Choose Genres
+            </h2>
+            <div className="options-grid">
               {visibleGenres.map(genre => (
                 <button
                   key={genre}
-                  className={`genre-button ${selectedGenres.includes(genre) ? 'selected' : ''}`}
+                  className={`option-chip ${selectedGenres.includes(genre) ? 'selected' : ''}`}
                   onClick={() => handleGenreClick(genre)}
                 >
                   {genre}
@@ -230,20 +215,25 @@ function CreateSession({ onStartSwiping, onBackToHome, onConnect }) {
               ))}
               {!showMoreGenres && (
                 <button
-                  className="genre-button more-button"
+                  className="option-chip more-chip"
                   onClick={() => setShowMoreGenres(true)}
                 >
-                  +{allGenres.length - 3} more
+                  +{allGenres.length - 5} more
                 </button>
               )}
             </div>
+          </div>
 
-            <h2 className="section-title streaming-title">Streaming Platforms</h2>
-            <div className="platform-buttons">
+            {/* Streaming Platforms Section */}
+          <div className="preference-card">
+            <h2 className="section-title" style={{ fontSize: '1.8rem', marginBottom: '1.5rem' }}>
+              Streaming Platforms
+            </h2>
+            <div className="options-grid">
               {allPlatforms.map(platform => (
                 <button
                   key={platform}
-                  className={`platform-button ${selectedPlatforms.includes(platform) ? 'selected' : ''}`}
+                  className={`option-chip platform-chip ${selectedPlatforms.includes(platform) ? 'selected' : ''}`}
                   onClick={() => handlePlatformClick(platform)}
                 >
                   {platform}
@@ -252,27 +242,16 @@ function CreateSession({ onStartSwiping, onBackToHome, onConnect }) {
             </div>
           </div>
 
-          <div className="right-column">
-            <div className="option-row">
-              <span className="option-label">Include movies you've seen</span>
-              <label className="toggle-switch">
-                <input
-                  type="checkbox"
-                  checked={includeSeen}
-                  onChange={(e) => setIncludeSeen(e.target.checked)}
-                />
-                <span className="toggle-slider"></span>
-              </label>
-            </div>
-
-            <div>
-              <h2 className="section-title threshold-title">Match Threshold</h2>
+          <div className="preference-card">
+          <h2 className="section-title" style={{ fontSize: '1.8rem', marginBottom: '1.5rem' }}>
+              Match Threshold
+            </h2>
               <div className="slider-container">
-                <div className="threshold-value">{matchThreshold}%</div>
                 <input
                   type="range"
                   min="50"
                   max="100"
+                  step="5"
                   value={matchThreshold}
                   onChange={(e) => setMatchThreshold(parseInt(e.target.value))}
                   className="threshold-slider"
@@ -283,15 +262,18 @@ function CreateSession({ onStartSwiping, onBackToHome, onConnect }) {
                   <span>100%</span>
                 </div>
               </div>
+              <p className="threshold-description">
+                Movies need {matchThreshold}% of group members to like them to be considered a match
+              </p>
             </div>
-          </div>
         </div>
 
+        {/* Create Session Button */}
         <div className="session-actions">
           <button 
-            className="generate-pin-button" 
+            className="btn btn-primary create-session-btn"
             onClick={handleCreateSession}
-            disabled={isLoading}
+            disabled={isLoading || selectedGenres.length === 0 || selectedPlatforms.length === 0}
           >
             {isLoading ? 'Creating Session...' : 'Generate Group PIN'}
           </button>
@@ -306,6 +288,7 @@ function CreateSession({ onStartSwiping, onBackToHome, onConnect }) {
           onStartSwiping={handleStartSwiping}
         />
       )}
+
     </div>
   );
 }
