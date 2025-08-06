@@ -2,7 +2,7 @@ from moviepicker.models.tmdb_api.api_enums import Genre, Provider, WatchRegion, 
 import requests
 
 class TMDBClient():
-    API_KEY = "1b270c67d33a1bef3a770107585e8d0a"
+    API_KEY = "f8103f29010c0d442dc5a33956b50c91"
     BASE_URL = "https://api.themoviedb.org/3/discover/movie"
     RETRIEVE_BASE_URL = "https://api.themoviedb.org/3/movie/"
 
